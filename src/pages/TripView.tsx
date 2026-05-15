@@ -147,7 +147,7 @@ const TripView = () => {
           <h1 className="text-2xl font-bold mb-4">Trip Not Found</h1>
           <p className="text-muted-foreground mb-4">{error || "This trip doesn't exist or is no longer available."}</p>
           <Button onClick={() => window.location.href = '/'}>
-            Go to Trip Pals
+            Go to Stashe
           </Button>
         </div>
       </div>
