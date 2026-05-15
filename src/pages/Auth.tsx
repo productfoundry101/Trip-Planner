@@ -135,7 +135,7 @@ export default function Auth() {
           <div className="h-9 w-9 rounded-xl gradient-warm flex items-center justify-center shadow-soft transition-transform group-hover:scale-110 group-hover:rotate-6">
             <MapPin className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="font-display font-bold text-xl tracking-tight">Trip Pals</span>
+          <span className="font-display font-bold text-xl tracking-tight">Stashe</span>
         </a>
         <div className="hidden md:flex items-center gap-8 text-sm">
           <button onClick={() => scrollTo('how')} className="story-link text-foreground/80 hover:text-foreground">
@@ -331,7 +331,7 @@ export default function Auth() {
 
       {/* Footer */}
       <footer className="relative border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
-        <p>Made with <Heart className="inline h-3.5 w-3.5 text-primary fill-primary" /> for travellers · © {new Date().getFullYear()} Trip Pals</p>
+        <p>Made with <Heart className="inline h-3.5 w-3.5 text-primary fill-primary" /> for travellers · © {new Date().getFullYear()} Stashe</p>
       </footer>
     </div>
   );
