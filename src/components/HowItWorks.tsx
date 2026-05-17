@@ -5,7 +5,7 @@ const steps = [
   {
     icon: MapPin,
     title: 'Create a trip',
-    desc: 'Pick a city you\'re visiting. We\'ll set up a shared map in seconds.',
+    desc: 'Pick your city. We set up a shared map instantly.',
     accent: 'primary',
     snippet: (
       <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-background border border-border text-xs">
@@ -18,7 +18,7 @@ const steps = [
   {
     icon: Users,
     title: 'Invite your friends',
-    desc: 'Share a link. No accounts needed. They drop their top Eat & Visit picks.',
+    desc: 'Share a link. No account needed. They drop their one best Eat and one best Visit pick.',
     accent: 'secondary',
     snippet: (
       <div className="flex items-center gap-2">
@@ -39,8 +39,8 @@ const steps = [
   },
   {
     icon: Sparkles,
-    title: 'Get a curated map',
-    desc: 'A beautiful map of trusted picks — no more endless research rabbit holes.',
+    title: 'Get your map',
+    desc: 'Every pick pinned on a map. Drag to prioritize. Ready before you land.',
     accent: 'accent',
     snippet: (
       <div className="flex items-center gap-2 text-xs">
@@ -77,11 +77,8 @@ export const HowItWorks: React.FC = () => {
             How it works
           </span>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Three steps to a <span className="text-gradient-warm">trip you'll love</span>
+            Three steps. <span className="text-gradient-warm">Zero research.</span>
           </h2>
-          <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto">
-            From scattered tips to a single, beautiful map of friend-vetted spots.
-          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
