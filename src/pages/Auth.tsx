@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from '@/hooks/use-toast';
-import { Loader2, MapPin, ArrowDown, Sparkles, Heart, Globe2 } from 'lucide-react';
+import { Loader2, MapPin, ArrowDown, Sparkles, Map, Link2, UserCheck, Compass } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { HowItWorks } from '@/components/HowItWorks';
 
@@ -157,12 +157,11 @@ export default function Auth() {
               Travel, curated by friends
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
-              Ever found yourself{' '}
-              <span className="text-gradient-warm">drowning in research</span>{' '}
-              for places to eat and visit whenever you are visiting a new place?
+              New city. No idea where to{' '}
+              <span className="text-gradient-warm">eat or go</span>? Your friends do.
             </h1>
             <p className="mt-8 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
-              <span className="font-semibold text-foreground">No more.</span> Ask your friends to provide their top place to eat and visit wherever you are visiting. Have a curated collection of best places from your friends, without any effort.
+              Send a link. Friends drop their top picks. You get a map worth trusting.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Button
@@ -170,7 +169,7 @@ export default function Auth() {
                 onClick={() => scrollTo('auth')}
                 className="gradient-warm text-primary-foreground shadow-soft hover:shadow-glow transition-all hover:scale-105 px-7 h-12 rounded-full font-semibold"
               >
-                Get started — it's free
+                Plan my trip
               </Button>
               <Button
                 size="lg"
@@ -181,17 +180,6 @@ export default function Auth() {
                 See how it works
                 <ArrowDown className="h-4 w-4 ml-1 animate-float" />
               </Button>
-            </div>
-
-            <div className="mt-12 flex items-center gap-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Heart className="h-4 w-4 text-primary" />
-                <span>Loved by travellers</span>
-              </div>
-              <div className="hidden sm:flex items-center gap-2">
-                <Globe2 className="h-4 w-4 text-accent" />
-                <span>Works for any city</span>
-              </div>
             </div>
           </div>
 
@@ -313,25 +301,66 @@ export default function Auth() {
       {/* How it works */}
       <HowItWorks />
 
-      {/* Feature strip */}
-      <section className="relative px-6 pb-20">
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-3 gap-4">
-          {[
-            { title: 'No accounts for friends', desc: 'They contribute via a single link.' },
-            { title: 'Eat & Visit categories', desc: 'Curated picks, perfectly organized.' },
-            { title: 'Beautiful shareable map', desc: 'Take it with you, on the go.' },
-          ].map((f) => (
-            <div key={f.title} className="p-6 rounded-2xl bg-card/60 border border-border hover:border-primary/40 hover:bg-card transition-all hover-lift">
-              <h4 className="font-semibold mb-1">{f.title}</h4>
-              <p className="text-sm text-muted-foreground">{f.desc}</p>
-            </div>
-          ))}
+      {/* Why Stashe */}
+      <section id="why" className="relative px-6 py-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block px-3 py-1 rounded-full bg-secondary/20 text-accent text-xs font-medium tracking-wide uppercase mb-4">
+              Why Stashe
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight max-w-3xl mx-auto leading-tight">
+              The best restaurants and hidden gems in any city, sourced from the only people you{' '}
+              <span className="text-gradient-warm">actually trust</span>.
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Compass,
+                title: 'From people who have actually been there',
+                desc: 'Travel guides are written by strangers. Your friends have actually been there.',
+              },
+              {
+                icon: UserCheck,
+                title: 'One pick per friend, per category',
+                desc: 'No noise, no overwhelming lists. Just the absolute best from each person.',
+              },
+              {
+                icon: Link2,
+                title: 'No app or account needed for contributors',
+                desc: 'Friends contribute with just a link. Zero friction.',
+              },
+              {
+                icon: Map,
+                title: 'A live map that goes wherever you do',
+                desc: 'Every pick pinned and ready. Take it on the road.',
+              },
+            ].map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <div
+                  key={f.title}
+                  className="p-6 rounded-2xl bg-card/60 border border-border hover:border-primary/40 hover:bg-card transition-all hover-lift"
+                >
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl gradient-warm text-primary-foreground mb-4">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h4 className="font-semibold mb-2">{f.title}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="relative border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
-        <p>Made with <Heart className="inline h-3.5 w-3.5 text-primary fill-primary" /> for travellers · © {new Date().getFullYear()} Stashe</p>
+      <footer className="relative border-t border-border py-12 px-6 text-center">
+        <p className="text-2xl md:text-3xl font-display font-bold tracking-tight text-foreground mb-2">
+          Stop researching. Start exploring.
+        </p>
+        <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Stashe</p>
       </footer>
     </div>
   );
